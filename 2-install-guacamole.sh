@@ -19,27 +19,8 @@ NC='\033[0m' #No Colour
 # Update everything but don't do the annoying prompts during apt installs
 echo -e "${GREY}Updating base Linux OS..."
 export DEBIAN_FRONTEND=noninteractive
-spinner() {
-  local pid=$1
-  local delay=0.15
-  local spinstr='|/-\'
-  tput civis
-  while ps -p $pid > /dev/null; do
-    for i in $(seq 0 3); do
-      tput sc
-      printf "[%c]" "${spinstr:$i:1}"
-      tput rc
-      sleep $delay
-    done
-  done
-  tput cnorm
-  printf "       "
-  tput rc
-}
 # We already ran apt-get update from the 1st setup script, now we begin to upgrade packages
-apt-get upgrade -qq -y &>>${INSTALL_LOG} &
-command_pid=$!
-spinner $command_pid
+apt-get upgrade -qq -y &>>${INSTALL_LOG}
 if [[ $? -ne 0 ]]; then
     echo -e "${LRED}Failed. See ${INSTALL_LOG}${GREY}" 1>&2
     exit 1
