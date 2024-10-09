@@ -7,7 +7,7 @@
 #######################################################################################################################
 
 # To install the latest code snapshot:
-# wget https://raw.githubusercontent.com/antoinet/Guacamole-Install/main/1-setup.sh && chmod +x 1-setup.sh && ./1-setup.sh
+# wget https://raw.githubusercontent.com/antoinet/Guacamole-Installer/main/1-setup.sh && chmod +x 1-setup.sh && ./1-setup.sh
 
 # 1-setup.sh is a central script that manages all inputs, options and sequences other included 'install' scripts.
 # 2-install-guacamole downloads Guacamole source and exectutes all Guacamole's build instructions.
@@ -83,7 +83,7 @@ mkdir -p $DOWNLOAD_DIR
 mkdir -p $DB_BACKUP_DIR
 
 # GitHub download branch
-GITHUB="https://raw.githubusercontent.com/antoinet/Guacamole-Install/main"
+GITHUB="https://raw.githubusercontent.com/antoinet/Guacamole-Installer/main"
 
 # Version of Guacamole to install
 GUAC_VERSION="1.5.5"
